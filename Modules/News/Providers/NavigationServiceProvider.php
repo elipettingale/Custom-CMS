@@ -11,11 +11,11 @@ class NavigationServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        $this->registerAdmin();
-        $this->registerFrontend();
+        $this->registerAdminNavigation();
+        $this->registerFrontendNavigation();
     }
 
-    private function registerAdmin()
+    private function registerAdminNavigation()
     {
         $navigation = app('admin-navigation');
 
@@ -42,7 +42,7 @@ class NavigationServiceProvider extends ServiceProvider
         ]));
     }
 
-    public function registerFrontend()
+    public function registerFrontendNavigation()
     {
         $navigation = app('frontend-navigation');
 
