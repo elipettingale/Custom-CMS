@@ -91,3 +91,11 @@ if (!function_exists('stock_image_path'))
         return asset("images/stock/{$number}.jpg");
     }
 }
+
+if (!function_exists('shortcode_pattern'))
+{
+    function shortcode_pattern(string $signature)
+    {
+        return "/\[$signature\](.*?)\[\/$signature\]/";
+    }
+}

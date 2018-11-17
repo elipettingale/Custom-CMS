@@ -18,7 +18,8 @@ class HeroSlider implements Shortcode
      */
     public function render(string $args): string
     {
-        $slides = [];
+        preg_match_all(shortcode_pattern('slide'), $args, $matches);
+        $slides = $matches[1];
 
         return view('content::frontend.hero-slider.show', [
             'slides' => $slides
