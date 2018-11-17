@@ -18,8 +18,8 @@ class Shortcode
         return '{' . $this->key . '}';
     }
 
-    public function getValue()
+    public function getValue(array $args)
     {
-        return \call_user_func($this->value);
+        return \call_user_func($this->value, $args);
     }
 }

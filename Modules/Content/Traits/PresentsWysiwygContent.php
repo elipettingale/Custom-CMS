@@ -26,8 +26,8 @@ trait PresentsWysiwygContent
 
         /** @var Shortcode $item */
         foreach ($shortcodes->getItems() as $item) {
-            if (strpos($value, $item->getKey())) {
-                $value = str_replace($item->getKey(), $item->getValue(), $value);
+            if (preg_match($item->getKey(), $value, $matches)) {
+                $value = str_replace('{' . array_shift($matches) . '}', $item->getValue($matches), $value);
             }
         }
 

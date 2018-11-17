@@ -13,8 +13,10 @@ class ShortcodeServiceProvider extends ServiceProvider
         /** @var Shortcodes $shortcodes */
         $shortcodes = app('wysiwyg-shortcodes');
 
-        $shortcodes->registerItem(new Shortcode('latest_posts', function() {
-            return view('news::frontend.post.latest');
+        $shortcodes->registerItem(new Shortcode('latest_(?<count>[^\}]+)_posts', function(array $args) {
+            return view('news::frontend.post.latest', [
+                'count' => $args['count']
+            ]);
         }));
     }
 }

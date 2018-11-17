@@ -25,7 +25,7 @@ class LatestLivePostsComposer
     public function compose(View $view): void
     {
         $latestLivePosts = cache()->tags([Post::class])->rememberForever(self::CACHE_KEY, function() {
-            return $this->postRepository->getLatestWhereLive(5);
+            return $this->postRepository->getLatestWhereLive(6);
         });
 
         $view->with('latestLivePosts', $latestLivePosts);
