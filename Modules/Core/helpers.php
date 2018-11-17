@@ -88,6 +88,6 @@ if (!function_exists('stock_image_path'))
             $number = random_int(1, 11);
         }
 
-        return public_path("images/stock/{$number}.jpg");
+        return asset("images/stock/{$number}.jpg");
     }
 }

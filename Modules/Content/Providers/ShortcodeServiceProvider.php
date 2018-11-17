@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\News\Providers;
+namespace Modules\Content\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Modules\Content\Services\Shortcodes;
+use Modules\Content\Shortcodes\HeroSlider;
 use Modules\Content\ValueObjects\Shortcode;
-use Modules\News\Shortcodes\LatestPostsShortcode;
 
 class ShortcodeServiceProvider extends ServiceProvider
 {
@@ -15,7 +15,7 @@ class ShortcodeServiceProvider extends ServiceProvider
         $shortcodes = app('wysiwyg-shortcodes');
 
         $shortcodes->registerItems([
-            LatestPostsShortcode::class
+            HeroSlider::class
         ]);
     }
 }
