@@ -1,0 +1,34 @@
+
+// Colors
+$blue: map_get($colors, 'blue') !default;
+$indigo: map_get($colors, 'indigo') !default;
+$purple: map_get($colors, 'purple') !default;
+$pink: map_get($colors, 'pink') !default;
+$red: map_get($colors, 'red') !default;
+$orange: map_get($colors, 'orange') !default;
+$yellow: map_get($colors, 'yellow') !default;
+$green: map_get($colors, 'green') !default;
+$teal: map_get($colors, 'teal') !default;
+$cyan: map_get($colors, 'cyan') !default;
+
+// Bootstrap
+$primary: map_get($bootstrap, primary);
+
+// Spacing todo: get rid of this from here
+$navbar-base-height: 70px;
+$sidenav-base-width: 250px;
+$sidenav-collapsed-width: 55px;
+$sticky-footer-height: 56px;
+
+// Greyscale Colors
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #868e96 !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
