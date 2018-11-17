@@ -6,20 +6,20 @@ use Modules\Core\Contracts\Shortcode;
 
 class LatestPostsShortcode implements Shortcode
 {
-    public function pattern(): string
+    public function signature(): string
     {
-        return 'latest_(?<count>[^\}]+)_posts';
+        return 'latest_posts';
     }
 
     /**
-     * @param array $args
+     * @param string $count
      * @return string
      * @throws \Throwable
      */
-    public function render(array $args): string
+    public function render(string $count): string
     {
         return view('news::frontend.post.latest', [
-           'count' => $args['count']
+           'count' => $count
         ])->render();
     }
 }

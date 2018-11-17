@@ -26,8 +26,11 @@ trait PresentsWysiwygContent
 
         /** @var Shortcode $item */
         foreach ($shortcodes->getItems() as $item) {
-            if (preg_match('{' . $item->pattern() . '}', $value, $matches)) {
-                $value = str_replace('{' . array_shift($matches) . '}', $item->render($matches), $value);
+            $start = '/\[' . $item->signature() . '\]';
+            $end = '\[\/' . $item->signature() . '\]/';
+
+            if (preg_match($start . '(.*)' . $end, $value, $matches)) {
+                $value = str_replace(array_shift($matches), $item->render(strip_tags($matches[0])), $value);
             }
         }
 

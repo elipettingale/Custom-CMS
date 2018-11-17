@@ -6,21 +6,21 @@ use Modules\Core\Contracts\Shortcode as ShortcodeContract;
 
 class Shortcode implements ShortcodeContract
 {
-    private $pattern;
+    private $signature;
     private $render;
 
-    public function __construct(string $pattern, callable $render)
+    public function __construct(string $signature, callable $render)
     {
-        $this->pattern = $pattern;
+        $this->signature = $signature;
         $this->render = $render;
     }
 
-    public function pattern(): string
+    public function signature(): string
     {
-        return $this->pattern;
+        return $this->signature;
     }
 
-    public function render(array $args): string
+    public function render(string $args): string
     {
         return \call_user_func($this->render, $args);
     }

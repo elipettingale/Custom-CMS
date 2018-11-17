@@ -6,19 +6,19 @@ use Modules\Core\Contracts\Shortcode;
 
 class HeroSlider implements Shortcode
 {
-    public function pattern(): string
+    public function signature(): string
     {
-        return 'hero_slider\}(?<slides>.*)\{hero_slider';
+        return 'hero_slider';
     }
 
     /**
-     * @param array $args
+     * @param string $args
      * @return string
      * @throws \Throwable
      */
-    public function render(array $args): string
+    public function render(string $args): string
     {
-        $slides = explode(',', $args['slides']);
+        $slides = [];
 
         return view('content::frontend.hero-slider.show', [
             'slides' => $slides
