@@ -2,21 +2,37 @@
 
 namespace Modules\Content\Services;
 
+use Illuminate\Support\Collection;
+
 class Shortcodes
 {
-    private $items = [];
+    private $items;
+
+    public function __construct()
+    {
+        $this->items = collect();
+    }
 
     public function registerItem($item): void
     {
-        $this->items[] = $item;
+        if (\is_object($item)) {
+            $this->items->push($item);
+            return;
+        }
+
+        if (\class_exists($item)) {
+            $this->items->push(new $item);
+        }
     }
 
     public function registerItems(array $items): void
     {
-        $this->items = array_merge($this->items, $items);
+        foreach ($items as $item) {
+            $this->registerItem($item);
+        }
     }
 
-    public function getItems(): array
+    public function getItems(): Collection
     {
         return $this->items;
     }
