@@ -1,17 +1,6 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Register Namespaces and Routes
-|--------------------------------------------------------------------------
-|
-| When your module starts, this file is executed automatically. By default
-| it will only load the module's route file. However, you can expand on
-| it to load anything else from the module, such as a class or view.
-|
-*/
-
 if (!app()->routesAreCached()) {
-    require __DIR__ . '/Http/admin_routes.php';
-    require __DIR__ . '/Http/frontend_routes.php';
+    require __DIR__ . '/Routes/admin.php';
+    require __DIR__ . '/Routes/frontend.php';
 }
