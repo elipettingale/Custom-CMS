@@ -1,17 +1,28 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Register Namespaces and Routes
-|--------------------------------------------------------------------------
-|
-| When your module starts, this file is executed automatically. By default
-| it will only load the module's route file. However, you can expand on
-| it to load anything else from the module, such as a class or view.
-|
-*/
+use Illuminate\Routing\Router;
 
 if (!app()->routesAreCached()) {
-    require __DIR__ . '/Http/admin_routes.php';
-    require __DIR__ . '/Http/frontend_routes.php';
+
+    $router = app('router');
+    $namespace = 'Modules\News\Http\Controllers';
+
+    $router->group([
+        'namespace' => $namespace . '\Admin',
+        'middleware' => ['web', 'auth'],
+        'prefix' => 'admin',
+        'as' => 'admin.'
+    ], function (Router $router) {
+        require __DIR__ . '/Routes/admin.php';
+    });
+
+    $router->group([
+        'namespace' => $namespace . '\Frontend',
+        'middleware' => ['web', 'frontend'],
+        'prefix' => '',
+        'as' => 'frontend.'
+    ], function (Router $router) {
+        require __DIR__ . '/Routes/frontend.php';
+    });
+
 }

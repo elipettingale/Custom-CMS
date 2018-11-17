@@ -3,7 +3,7 @@
 namespace Modules\Content\Traits;
 
 use Modules\Content\Services\Shortcodes;
-use Modules\Content\ValueObjects\Shortcode;
+use Modules\Core\Contracts\Shortcode;
 
 trait PresentsWysiwygContent
 {
@@ -26,8 +26,8 @@ trait PresentsWysiwygContent
 
         /** @var Shortcode $item */
         foreach ($shortcodes->getItems() as $item) {
-            if (strpos($value, $item->getKey())) {
-                $value = str_replace($item->getKey(), $item->getValue(), $value);
+            if (preg_match(shortcode_pattern($item->signature()), $value, $matches)) {
+                $value = str_replace(array_shift($matches), $item->render(strip_tags($matches[0])), $value);
             }
         }
 

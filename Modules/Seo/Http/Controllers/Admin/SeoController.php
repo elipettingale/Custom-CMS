@@ -4,6 +4,7 @@ namespace Modules\Seo\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\Core\Services\MessageFactory;
 use Modules\Seo\Contracts\HasSeoProfile;
 use Modules\Seo\Entities\SeoProfile;
 use Modules\Seo\Managers\SeoProfileManager;
@@ -38,7 +39,7 @@ class SeoController extends Controller
         register_breadcrumb(upper_case($this->config['module']), route('admin.' . lower_hyphen_case($this->config['entity_plural']) . '.index'));
 
         register_breadcrumb('Edit ' . upper_case($this->config['entity']) . ': ' . $this->config['identifier'], route('admin.' . lower_hyphen_case($this->config['entity_plural']) . '.edit', $entity->id));
-        register_breadcrumb('Edit ' . upper_case($this->config['entity']) . ' Seo: ' . $this->config['identifier'], route('admin.' . lower_hyphen_case($this->config['entity_plural']) . '.seo.edit', $entity->id));
+        register_breadcrumb('Edit ' . upper_case($this->config['entity']) . ' Seo: ' . $this->config['identifier'], route('admin.seo.edit', [lower_hyphen_case($this->config['entity_plural']), $entity->id]));
 
         return view('seo::admin.seo-profile.edit', [
             'entity' => $entity,
@@ -59,10 +60,10 @@ class SeoController extends Controller
 
         if (!$this->seoProfileManager->createOrUpdate($entity, $request->all())) {
             return redirect()->back()
-                ->with('error', trans_error('messages.error.entity-updated', ['entity' => upper_case($this->config['entity'])]));
+                ->with('error', MessageFactory::entityNotUpdated(upper_case($this->config['entity'])));
         }
 
         return redirect()->back()
-            ->with('success', trans('messages.success.entity-updated', ['entity' => upper_case($this->config['entity'])]));
+            ->with('success', MessageFactory::entityUpdated(upper_case($this->config['entity'])));
     }
 }

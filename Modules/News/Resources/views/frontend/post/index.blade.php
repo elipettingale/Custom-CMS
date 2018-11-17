@@ -3,9 +3,9 @@
 
 @section('content')
 
-    <div class="row">
+    <div class="row posts">
         @foreach($posts as $post)
-            <div class="col-12 col-lg-6 col-xl-4">
+            <div class="col-12 col-lg-6 col-xl-4 d-flex">
                 @include('news::frontend.post.partials.preview')
             </div>
         @endforeach

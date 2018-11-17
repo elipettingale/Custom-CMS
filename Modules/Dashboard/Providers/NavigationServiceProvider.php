@@ -10,10 +10,10 @@ class NavigationServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        $this->registerAdmin();
+        $this->registerAdminNavigation();
     }
 
-    private function registerAdmin()
+    private function registerAdminNavigation()
     {
         /** @var Navigation $navigation */
         $navigation = app('admin-navigation');

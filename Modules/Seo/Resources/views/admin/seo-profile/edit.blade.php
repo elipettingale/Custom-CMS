@@ -10,7 +10,7 @@
                     <i class="fa fa-edit"></i> Seo
                 @endslot
                 @slot('body')
-                    <form method="POST" action="{{ route('admin.' . lower_hyphen_case($config['entity_plural']) . '.seo.update', $entity->id) }}">
+                    <form method="POST" action="{{ route('admin.seo.update', [lower_hyphen_case($config['entity_plural']), $entity->id]) }}">
                         {{ csrf_field() }}
                         {{ method_field('put') }}
                         @include('seo::admin.seo-profile.partials.content')

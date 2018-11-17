@@ -13,7 +13,7 @@
 </head>
 <body>
 @include('partials.frontend.header')
-<div class="container">
+<div class="container main-container">
     <div class="row">
         @yield('content')
     </div>

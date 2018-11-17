@@ -2,24 +2,26 @@
 
 namespace Modules\Content\ValueObjects;
 
-class Shortcode
+use Modules\Core\Contracts\Shortcode as ShortcodeContract;
+
+class Shortcode implements ShortcodeContract
 {
-    private $key;
-    private $value;
+    private $signature;
+    private $render;
 
-    public function __construct(string $key, callable $value)
+    public function __construct(string $signature, callable $render)
     {
-        $this->key = $key;
-        $this->value = $value;
+        $this->signature = $signature;
+        $this->render = $render;
     }
 
-    public function getKey(): string
+    public function signature(): string
     {
-        return '{' . $this->key . '}';
+        return $this->signature;
     }
 
-    public function getValue()
+    public function render(string $args): string
     {
-        return \call_user_func($this->value);
+        return \call_user_func($this->render, $args);
     }
 }

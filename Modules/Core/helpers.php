@@ -85,9 +85,17 @@ if (!function_exists('stock_image_path'))
     function stock_image_path(int $number = null)
     {
         if (!$number) {
-            $number = random_int(1, 6);
+            $number = random_int(1, 11);
         }
 
-        return resource_path("assets/admin/images/stock/{$number}.jpg");
+        return asset("images/stock/{$number}.jpg");
+    }
+}
+
+if (!function_exists('shortcode_pattern'))
+{
+    function shortcode_pattern(string $signature)
+    {
+        return "/\[$signature\](.*?)\[\/$signature\]/";
     }
 }

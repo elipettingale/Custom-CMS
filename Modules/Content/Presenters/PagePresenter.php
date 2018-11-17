@@ -9,6 +9,4 @@ use Modules\Content\Traits\PresentsWysiwygContent;
 class PagePresenter extends Presenter
 {
     use PresentsWysiwygContent, PresentsStatusBadge;
-
-    //
 }

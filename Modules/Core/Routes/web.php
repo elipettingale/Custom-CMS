@@ -2,9 +2,8 @@
 
 use Illuminate\Routing\Router;
 
-$router = app('router');
-
 $router->group([
+    'middleware' => ['auth'],
     'prefix' => 'static'
 ], function(Router $router) {
 

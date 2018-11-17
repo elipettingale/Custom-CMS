@@ -26,8 +26,6 @@ class CoreServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->register(RouteServiceProvider::class);
-
         $this->app->bind(AddressRepository::class, EloquentAddressRepository::class);
         $this->app->bind(AddressLookup::class, LoquateAddressLookup::class);
         $this->app->bind(StatusRepository::class, ConfigStatusRepository::class);
