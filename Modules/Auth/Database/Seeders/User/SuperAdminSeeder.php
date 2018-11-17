@@ -24,7 +24,7 @@ class SuperAdminSeeder extends Seeder
             'first_name' => $this->command->ask('First Name'),
             'last_name' => $this->command->ask('Last Name'),
             'email' => $this->command->ask('Email'),
-            'password' => $this->command->secret('Password'),
+            'password' => $this->command->ask('Password', 'password'),
             'permissions' => ['*' => true]
         ]);
     }
