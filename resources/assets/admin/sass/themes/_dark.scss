@@ -1,0 +1,150 @@
+$theme: (
+    'primary': (
+        -9: #100607,
+        -8: #210d0e,
+        -7: #321316,
+        -6: #421a1d,
+        -5: #532025,
+        -4: #64272c,
+        -3: #742d33,
+        -2: #85343b,
+        -1: #963a42,
+         0: #a7414a,
+        +1: #af545c,
+        +2: #b8666e,
+        +3: #c17a80,
+        +4: #ca8d92,
+        +5: #d3a0a4,
+        +6: #dbb3b6,
+        +7: #e4c6c8,
+        +8: #edd9da,
+        +9: #f6ecec,
+    ),
+    'secondary': (
+        -9: #000000,
+        -8: #0B0B0B,
+        -7: #161616,
+        -6: #212121,
+        -5: #2C2C2C,
+        -4: #383838,
+        -3: #494949,
+        -2: #5B5B5B,
+        -1: #6D6D6D,
+         0: #7F7F7F,
+        +1: #8D8D8D,
+        +2: #9B9B9B,
+        +3: #A9A9A9,
+        +4: #C6C6C6,
+        +5: #D4D4D4,
+        +6: #DEDEDE,
+        +7: #E9E9E9,
+        +8: #F4F4F4,
+        +9: #ffffff,
+    )
+);
+
+@function theme($color, $shade) {
+    @return map_get(map_get($theme, $color), $shade);
+}
+
+$colors: (
+    'blue': #36688D,
+    'indigo': #6975A6,
+    'purple': #5c4a72,
+    'pink': #f098aa,
+    'red': #A7414A,
+    'orange': #f49f05,
+    'yellow': #ffdc14,
+    'green': #62a659,
+    'teal': #008080,
+    'cyan': #4C8A93
+);
+
+$global: (
+    background: theme('secondary', -5),
+    link: theme('primary', +2),
+    link-hover: theme('primary', 0)
+);
+
+$bootstrap: (
+    primary: theme('primary', 0)
+);
+
+$login-top: (
+    background: theme('secondary', -6),
+    brand: theme('secondary', +8),
+    brand-hover: theme('primary', 0)
+);
+
+$login-bottom: (
+    text: theme('secondary', +8)
+);
+
+$top-nav: (
+    background: theme('secondary', -5),
+    brand: theme('secondary', +9),
+    brand-hover: theme('primary', 0),
+    link: theme('secondary', +5),
+    link-hover: theme('secondary', +8),
+    link-active: theme('secondary', +9)
+);
+
+$side-nav: (
+    background: theme('secondary', -4),
+    background-active: theme('primary', -2),
+    link: theme('secondary', +5),
+    link-hover: theme('secondary', +8),
+    link-active: theme('secondary', +9)
+);
+
+$nav-toggle: (
+    background: theme('secondary', -3),
+    link: theme('secondary', +9)
+);
+
+$breadcrumb-bar: (
+    background: theme('secondary', +8),
+    link: theme('primary', -1),
+    link-hover: theme('primary', -2),
+    link-active: theme('secondary', -1)
+);
+
+$pagination: (
+    background: theme('secondary', +9),
+    background-hover: theme('primary', +9),
+    background-active: theme('primary', 0),
+    border-active: theme('primary', +8),
+    link: theme('primary', -2),
+    link-hover: theme('primary', +4),
+    link-active: theme('secondary', +9),
+    link-disabled: theme('secondary', +7)
+);
+
+$timeline: (
+    background: theme('primary', 0),
+    link: theme('primary', +4),
+    link-hover: theme('primary', 0),
+    link-active: theme('secondary', -3),
+    point: theme('primary', 0),
+    point-active: theme('secondary', -3),
+);
+
+$card-header: (
+    background: theme('secondary', -4),
+    text: theme('secondary', +8)
+);
+
+$footer: (
+    background: theme('secondary', +8)
+);
+
+$table-header: (
+    background: theme('secondary', -4),
+    border: theme('secondary', -3),
+    text: theme('secondary', +8)
+);
+
+$datepicker-today: (
+    background: theme('secondary', +3),
+    text: theme('secondary', +9)
+);

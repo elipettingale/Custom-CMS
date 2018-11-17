@@ -1,0 +1,94 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+use Modules\$MODULE_UPPER_CAMEL_CASE$\Entities\$ENTITY_UPPER_CAMEL_CASE$;
+use Modules\$MODULE_UPPER_CAMEL_CASE$\Http\Requests\Admin\$ENTITY_UPPER_CAMEL_CASE$\Store$ENTITY_UPPER_CAMEL_CASE$Request;
+use Modules\$MODULE_UPPER_CAMEL_CASE$\Http\Requests\Admin\$ENTITY_UPPER_CAMEL_CASE$\Update$ENTITY_UPPER_CAMEL_CASE$Request;
+use Modules\$MODULE_UPPER_CAMEL_CASE$\Repositories\$ENTITY_UPPER_CAMEL_CASE$Repository;
+
+class $ENTITY_UPPER_CAMEL_CASE$Controller extends Controller
+{
+    private $$ENTITY_LOWER_CAMEL_CASE$Repository;
+
+    public function __construct($ENTITY_UPPER_CAMEL_CASE$Repository $$ENTITY_LOWER_CAMEL_CASE$Repository)
+    {
+        $this->$ENTITY_LOWER_CAMEL_CASE$Repository = $$ENTITY_LOWER_CAMEL_CASE$Repository;
+
+        register_breadcrumb('$MODULE_UPPER_CASE$', null);
+        register_breadcrumb('$ENTITY_PLURAL_UPPER_CASE$', route('admin.$ENTITY_PLURAL_LOWER_HYPHEN_CASE$.index'));
+    }
+
+    public function index(): View
+    {
+        authorize('list', $ENTITY_UPPER_CAMEL_CASE$::class);
+
+        return view('$MODULE_TIGHT_CASE$::admin.$ENTITY_LOWER_HYPHEN_CASE$.index', [
+            '$ENTITY_PLURAL_LOWER_CAMEL_CASE$' => $this->$ENTITY_LOWER_CAMEL_CASE$Repository->getAdminListing()
+        ]);
+    }
+
+    public function create(): View
+    {
+        authorize('create', $ENTITY_UPPER_CAMEL_CASE$::class);
+
+        register_breadcrumb('Create New $ENTITY_UPPER_CASE$', route('admin.$ENTITY_PLURAL_LOWER_HYPHEN_CASE$.create'));
+
+        return view('$MODULE_TIGHT_CASE$::admin.$ENTITY_LOWER_HYPHEN_CASE$.create', [
+            '$ENTITY_LOWER_CAMEL_CASE$' => $this->$ENTITY_LOWER_CAMEL_CASE$Repository->createNewInstance()
+        ]);
+    }
+
+    public function store(Store$ENTITY_UPPER_CAMEL_CASE$Request $request): RedirectResponse
+    {
+        authorize('create', $ENTITY_UPPER_CAMEL_CASE$::class);
+
+        if (!$$ENTITY_LOWER_CAMEL_CASE$ = $this->$ENTITY_LOWER_CAMEL_CASE$Repository->create($request->all())) {
+            return redirect()->back()
+                ->with('error', trans('messages.error.entity-created', ['entity' => '$ENTITY_UPPER_CASE$']));
+        }
+
+        return redirect()->route('admin.$ENTITY_PLURAL_LOWER_HYPHEN_CASE$.edit', $$ENTITY_LOWER_CAMEL_CASE$->id)
+            ->with('success', trans('messages.success.entity-created', ['entity' => '$ENTITY_UPPER_CASE$']));
+    }
+
+    public function edit($ENTITY_UPPER_CAMEL_CASE$ $$ENTITY_LOWER_CAMEL_CASE$): View
+    {
+        authorize('edit', $$ENTITY_LOWER_CAMEL_CASE$);
+
+        register_breadcrumb("Edit $ENTITY_UPPER_CASE$: {$$ENTITY_LOWER_CAMEL_CASE$->$MAIN_FIELD_LOWER_SNAKE_CASE$}", route('admin.$ENTITY_PLURAL_LOWER_HYPHEN_CASE$.edit', $$ENTITY_LOWER_CAMEL_CASE$->id));
+
+        return view('$MODULE_TIGHT_CASE$::admin.$ENTITY_LOWER_HYPHEN_CASE$.edit', [
+            '$ENTITY_LOWER_CAMEL_CASE$' => $$ENTITY_LOWER_CAMEL_CASE$
+        ]);
+    }
+
+    public function update($ENTITY_UPPER_CAMEL_CASE$ $$ENTITY_LOWER_CAMEL_CASE$, Update$ENTITY_UPPER_CAMEL_CASE$Request $request): RedirectResponse
+    {
+        authorize('edit', $$ENTITY_LOWER_CAMEL_CASE$);
+
+        if (!$this->$ENTITY_LOWER_CAMEL_CASE$Repository->update($$ENTITY_LOWER_CAMEL_CASE$, $request->all())) {
+            return redirect()->back()
+                ->with('error', trans('messages.error.entity-updated', ['entity' => '$ENTITY_UPPER_CASE$']));
+        }
+
+        return redirect()->back()
+            ->with('success', trans('messages.success.entity-updated', ['entity' => '$ENTITY_UPPER_CASE$']));
+    }
+
+    public function destroy($ENTITY_UPPER_CAMEL_CASE$ $$ENTITY_LOWER_CAMEL_CASE$): RedirectResponse
+    {
+        authorize('delete', $$ENTITY_LOWER_CAMEL_CASE$);
+
+        if (!$this->$ENTITY_LOWER_CAMEL_CASE$Repository->delete($$ENTITY_LOWER_CAMEL_CASE$)) {
+            return redirect()->back()
+                ->with('error', trans('messages.error.entity-deleted', ['entity' => '$ENTITY_UPPER_CASE$']));
+        }
+
+        return redirect()->back()
+            ->with('success', trans('messages.success.entity-deleted', ['entity' => '$ENTITY_UPPER_CASE$']));
+    }
+}

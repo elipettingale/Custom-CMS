@@ -1,0 +1,26 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Policies;
+
+class $ENTITY_UPPER_CAMEL_CASE$Policy
+{
+    public function list($user): bool
+    {
+        return $user->hasAccess('$MODULE_LOWER_HYPHEN_CASE$.$ENTITY_LOWER_HYPHEN_CASE$.manage');
+    }
+
+    public function create($user): bool
+    {
+        return $user->hasAccess('$MODULE_LOWER_HYPHEN_CASE$.$ENTITY_LOWER_HYPHEN_CASE$.manage');
+    }
+
+    public function edit($user, $$ENTITY_LOWER_CAMEL_CASE$): bool
+    {
+        return $user->hasAccess('$MODULE_LOWER_HYPHEN_CASE$.$ENTITY_LOWER_HYPHEN_CASE$.manage');
+    }
+
+    public function delete($user, $$ENTITY_LOWER_CAMEL_CASE$): bool
+    {
+        return $user->hasAccess('$MODULE_LOWER_HYPHEN_CASE$.$ENTITY_LOWER_HYPHEN_CASE$.manage');
+    }
+}

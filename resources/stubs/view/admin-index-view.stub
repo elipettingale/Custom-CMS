@@ -1,0 +1,43 @@
+@extends('layouts.admin.main')
+@section('title', '$ENTITY_PLURAL_UPPER_CASE$')
+
+@section('actions')
+    @include('$MODULE_TIGHT_CASE$::admin.$ENTITY_LOWER_HYPHEN_CASE$.partials.global-actions')
+@endsection
+
+@section('content')
+
+    <div class="row">
+        <div class="col-xl-9 mb-3">
+            @component('components.admin.table')
+                @slot('thead')
+                    <tr>
+                        <th>@lang('$MODULE_TIGHT_CASE$::attributes.$ENTITY_LOWER_HYPHEN_CASE$.$MAIN_FIELD_LOWER_SNAKE_CASE$')</th>
+                        <th class="no-sort no-search">Actions</th>
+                    </tr>
+                @endslot
+                @slot('tbody')
+                    @foreach($$ENTITY_PLURAL_LOWER_CAMEL_CASE$ as $$ENTITY_LOWER_CAMEL_CASE$)
+                        <tr>
+                            <td>{{ $$ENTITY_LOWER_CAMEL_CASE$->$MAIN_FIELD_LOWER_SNAKE_CASE$ }}</td>
+                            <td class="text-right">
+                                @include('$MODULE_TIGHT_CASE$::admin.$ENTITY_LOWER_HYPHEN_CASE$.partials.entity-actions')
+                            </td>
+                        </tr>
+                    @endforeach
+                @endslot
+            @endcomponent
+        </div>
+        <div class="col-xl-3">
+            @component('components.admin.card')
+                @slot('header')
+                    Filters
+                @endslot
+                @slot('body')
+                    @include('$MODULE_TIGHT_CASE$::admin.$ENTITY_LOWER_HYPHEN_CASE$.partials.filters')
+                @endslot
+            @endcomponent
+        </div>
+    </div>
+
+@endsection

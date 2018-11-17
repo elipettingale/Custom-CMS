@@ -1,0 +1,16 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Providers;
+
+use Illuminate\Support\ServiceProvider;
+
+class SettingsServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        /** @var \Modules\Settings\Services\Settings $settings */
+        $settings = app('settings');
+
+        //
+    }
+}

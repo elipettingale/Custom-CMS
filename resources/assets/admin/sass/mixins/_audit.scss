@@ -1,0 +1,10 @@
+.audit-log-container {
+  display: flex;
+
+  .audit-details {
+    width: 100%;
+    .is-valid {
+      background: rgba($green, 0.2);
+    }
+  }
+}

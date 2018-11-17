@@ -1,0 +1,13 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Composers;
+
+use Illuminate\View\View;
+
+class $COMPOSER_NAME_UPPER_CAMEL_CASE$Composer
+{
+    public function compose(View $view): void
+    {
+        $view->with('$COMPOSER_NAME_LOWER_CAMEL_CASE$', []);
+    }
+}

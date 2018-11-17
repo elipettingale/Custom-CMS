@@ -1,0 +1,26 @@
+@extends('layouts.admin.main')
+@section('title', 'Create New $ENTITY_UPPER_CASE$')
+
+@section('content')
+
+    @component('components.admin.card')
+        @slot('header')
+            <i class="fa fa-edit"></i> Content
+        @endslot
+        @slot('body')
+            <form method="POST" action="{{ route('admin.$ENTITY_PLURAL_LOWER_HYPHEN_CASE$.store') }}">
+                {{ csrf_field() }}
+                @include('$MODULE_TIGHT_CASE$::admin.$ENTITY_LOWER_HYPHEN_CASE$.partials.form.content')
+                <div class="card-buttons">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-check"></i> Create
+                    </button>
+                    <a class="btn btn-danger" href="{{ route('admin.$ENTITY_PLURAL_LOWER_HYPHEN_CASE$.index') }}">
+                        <i class="fa fa-ban"></i> Cancel
+                    </a>
+                </div>
+            </form>
+        @endslot
+    @endcomponent
+
+@endsection

@@ -1,0 +1,33 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Composers;
+
+use Illuminate\View\View;
+
+class $COMPOSER_NAME_UPPER_CAMEL_CASE$Composer
+{
+    public const CACHE_KEY = '$COMPOSER_NAME_LOWER_HYPHEN_CASE$';
+
+    /**
+     * @param \Illuminate\View\View $view
+     * @throws \Exception
+     */
+    public function compose(View $view): void
+    {
+        $$COMPOSER_NAME_LOWER_CAMEL_CASE$ = cache()->rememberForever(self::CACHE_KEY, function() {
+            return [];
+        });
+
+        $view->with('$COMPOSER_NAME_LOWER_CAMEL_CASE$', $$COMPOSER_NAME_LOWER_CAMEL_CASE$);
+    }
+
+    public static function bustCache(): bool
+    {
+        try {
+            cache()->forget(self::CACHE_KEY);
+            return true;
+        } catch (\Exception $exception) {
+            return false;
+        }
+    }
+}

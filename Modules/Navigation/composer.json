@@ -1,0 +1,25 @@
+{
+    "name": "elipettingale/navigation",
+    "description": "",
+    "authors": [
+        {
+            "name": "Elliot Pettingale",
+            "email": "elipettingale@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Navigation\\Providers\\NavigationServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Navigation\\": ""
+        }
+    }
+}

@@ -1,0 +1,35 @@
+.dashboard-chart {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+}
+
+.news-feed {
+  .post {
+    display: flex;
+    height: 150px;
+    .featured-image {
+      height: 100%;
+    }
+    .content {
+      display: flex;
+      padding-left: 10px;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .post-header {
+        h5 {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  .btn-bar {
+    text-align: center;
+    .btn {
+      width: 200px;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.bootstrap-select {
+  .btn:focus {
+    outline-color: $primary !important;
+  }
+  .dropdown-item:focus {
+    outline-color: $primary;
+  }
+}

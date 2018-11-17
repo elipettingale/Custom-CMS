@@ -1,0 +1,15 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Events;
+
+use Illuminate\Queue\SerializesModels;
+
+class $EVENT_NAME_UPPER_CAMEL_CASE$
+{
+    use SerializesModels;
+
+    public function __construct()
+    {
+        //
+    }
+}

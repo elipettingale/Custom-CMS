@@ -1,0 +1,7 @@
+<div class="row">
+    <div class="form-group col-12 col-xl-6">
+        <label for="$MAIN_FIELD_LOWER_SNAKE_CASE$" class="form-control-label">@lang('$MODULE_TIGHT_CASE$::attributes.$ENTITY_LOWER_HYPHEN_CASE$.$MAIN_FIELD_LOWER_SNAKE_CASE$')</label>
+        <input type="text" name="$MAIN_FIELD_LOWER_SNAKE_CASE$" id="$MAIN_FIELD_LOWER_SNAKE_CASE$" class="form-control {{ $errors->first('$MAIN_FIELD_LOWER_SNAKE_CASE$', 'is-invalid') }}" value="{{ old('$MAIN_FIELD_LOWER_SNAKE_CASE$', $$ENTITY_LOWER_CAMEL_CASE$->$MAIN_FIELD_LOWER_SNAKE_CASE$) }}">
+        <div class="invalid-feedback">{{ $errors->first('$MAIN_FIELD_LOWER_SNAKE_CASE$') }}</div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="dropdown">
+    <button class="btn btn-info btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+        <i class="fa fa-cog"></i>
+    </button>
+    <div class="dropdown-menu">
+        @can('edit', $$ENTITY_LOWER_CAMEL_CASE$)
+            <a href="{{ route('admin.$ENTITY_PLURAL_LOWER_HYPHEN_CASE$.edit', $$ENTITY_LOWER_CAMEL_CASE$->id) }}" class="dropdown-item dropdown-info">
+                <i class="fa fa-edit"></i> Edit
+            </a>
+        @endcan
+        @can('delete', $$ENTITY_LOWER_CAMEL_CASE$)
+            <form method="POST" action="{{ route('admin.$ENTITY_PLURAL_LOWER_HYPHEN_CASE$.destroy', $$ENTITY_LOWER_CAMEL_CASE$->id) }}">
+                {{ csrf_field() }}
+                {{ method_field('delete') }}
+                <button type="submit" class="dropdown-item dropdown-danger" data-alert="confirm-delete">
+                    <i class="fa fa-trash"></i> Delete
+                </button>
+            </form>
+        @endcan
+    </div>
+</div>

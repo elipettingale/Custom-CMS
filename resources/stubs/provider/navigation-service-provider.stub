@@ -1,0 +1,16 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Modules\Navigation\Services\NavigationFactory;
+
+class NavigationServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+        $sideNavigation = app('admin-navigation');
+
+        //
+    }
+}

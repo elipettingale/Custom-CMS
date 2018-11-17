@@ -1,0 +1,22 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Http\Requests\Admin\$ENTITY_UPPER_CAMEL_CASE$;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class Update$ENTITY_UPPER_CAMEL_CASE$Request extends FormRequest
+{
+    public function authorize()
+    {
+        return true;
+    }
+
+    public function rules()
+    {
+        $$ENTITY_LOWER_CAMEL_CASE$ = $this->route('$ENTITY_LOWER_HYPHEN_CASE$');
+
+        return [
+            '$MAIN_FIELD_LOWER_SNAKE_CASE$' => ['required']
+        ];
+    }
+}

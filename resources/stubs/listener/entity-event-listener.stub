@@ -1,0 +1,13 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Listeners;
+
+use Modules\$MODULE_UPPER_CAMEL_CASE$\Events\$ENTITY_UPPER_CAMEL_CASE$Event;
+
+class $LISTENER_NAME_UPPER_CAMEL_CASE$
+{
+    public function handle($ENTITY_UPPER_CAMEL_CASE$Event $event): void
+    {
+        //
+    }
+}

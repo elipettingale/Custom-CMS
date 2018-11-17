@@ -1,0 +1,12 @@
+<div class="dropdown">
+    <button class="btn btn-info dropdown-toggle" type="button" id="actionsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Actions
+    </button>
+    <div class="dropdown-menu" aria-labelledby="actionsDropdown">
+        @can('create', \Modules\$MODULE_UPPER_CAMEL_CASE$\Entities\$ENTITY_UPPER_CAMEL_CASE$::class)
+            <a class="dropdown-item dropdown-success" href="{{ route('admin.$ENTITY_PLURAL_LOWER_HYPHEN_CASE$.create') }}">
+                <i class="fa fa-plus"></i> Create New $ENTITY_UPPER_CASE$
+            </a>
+        @endcan
+    </div>
+</div>

@@ -1,0 +1,28 @@
+.table {
+  th {
+    background-color: map_get($table-header, background);
+    border-color: map_get($table-header, border);
+    color: map_get($table-header, text);
+  }
+}
+
+.sorting, .sorting_asc, .sorting_desc {
+  &:before {
+    right: 1.3em !important;
+  }
+}
+
+.dataTables_wrapper {
+  .dataTables_filter, .dataTables_length {
+    display: none !important;
+  }
+
+  .dataTable {
+    margin-top: 0 !important;
+    margin-bottom: 15px !important;
+
+    td strong {
+      color: $primary;
+    }
+  }
+}

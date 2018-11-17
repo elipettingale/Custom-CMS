@@ -1,0 +1,18 @@
+{
+    "name": "Navigation",
+    "alias": "navigation",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Navigation\\Providers\\NavigationServiceProvider",
+        "Modules\\Navigation\\Providers\\ViewComposerServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php",
+        "helpers.php"
+    ],
+    "requires": []
+}

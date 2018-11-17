@@ -1,0 +1,10 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Events;
+
+use Modules\$MODULE_UPPER_CAMEL_CASE$\Entities\$ENTITY_UPPER_CAMEL_CASE$;
+
+interface $ENTITY_UPPER_CAMEL_CASE$Event
+{
+    public function get$ENTITY_UPPER_CAMEL_CASE$(): $ENTITY_UPPER_CAMEL_CASE$;
+}

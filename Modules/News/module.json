@@ -1,0 +1,21 @@
+{
+    "name": "News",
+    "alias": "news",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\News\\Providers\\NewsServiceProvider",
+        "Modules\\News\\Providers\\NavigationServiceProvider",
+        "Modules\\News\\Providers\\PermissionServiceProvider",
+        "Modules\\News\\Providers\\ComposerServiceProvider",
+        "Modules\\News\\Providers\\ShortcodeServiceProvider",
+        "Modules\\News\\Providers\\ApiQueryServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}

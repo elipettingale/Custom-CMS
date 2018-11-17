@@ -1,0 +1,63 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Repositories\Eloquent;
+
+use EliPett\ListingBuilder\Services\BuildListing;
+use Illuminate\Support\Collection;
+use Modules\$MODULE_UPPER_CAMEL_CASE$\Entities\$ENTITY_UPPER_CAMEL_CASE$;
+use Modules\$MODULE_UPPER_CAMEL_CASE$\Repositories\$ENTITY_UPPER_CAMEL_CASE$Repository;
+
+class Eloquent$ENTITY_UPPER_CAMEL_CASE$Repository implements $ENTITY_UPPER_CAMEL_CASE$Repository
+{
+    private $$ENTITY_LOWER_CAMEL_CASE$;
+
+    public function __construct($ENTITY_UPPER_CAMEL_CASE$ $$ENTITY_LOWER_CAMEL_CASE$)
+    {
+        $this->$ENTITY_LOWER_CAMEL_CASE$ = $$ENTITY_LOWER_CAMEL_CASE$;
+    }
+
+    public function createNewInstance(): $ENTITY_UPPER_CAMEL_CASE$
+    {
+        return new $this->$ENTITY_LOWER_CAMEL_CASE$;
+    }
+
+    public function create(array $data): $ENTITY_UPPER_CAMEL_CASE$
+    {
+        $$ENTITY_LOWER_CAMEL_CASE$ = $this->createNewInstance();
+        $$ENTITY_LOWER_CAMEL_CASE$->fill($data);
+        $$ENTITY_LOWER_CAMEL_CASE$->save();
+
+        return $$ENTITY_LOWER_CAMEL_CASE$;
+    }
+
+    public function update($ENTITY_UPPER_CAMEL_CASE$ $$ENTITY_LOWER_CAMEL_CASE$, array $data): bool
+    {
+        $$ENTITY_LOWER_CAMEL_CASE$->fill($data);
+
+        return $$ENTITY_LOWER_CAMEL_CASE$->save();
+    }
+
+    public function delete($ENTITY_UPPER_CAMEL_CASE$ $$ENTITY_LOWER_CAMEL_CASE$): bool
+    {
+        return $$ENTITY_LOWER_CAMEL_CASE$->delete();
+    }
+
+    public function findOrFail(int $id): $ENTITY_UPPER_CAMEL_CASE$
+    {
+        return $this->$ENTITY_LOWER_CAMEL_CASE$
+            ->where('id', $id)
+            ->firstOrFail();
+    }
+
+    public function getAll(): Collection
+    {
+        return $this->$ENTITY_LOWER_CAMEL_CASE$
+            ->get();
+    }
+
+    public function getAdminListing(): Collection
+    {
+        return BuildListing::from($this->$ENTITY_LOWER_CAMEL_CASE$)
+            ->get();
+    }
+}

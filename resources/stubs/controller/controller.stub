@@ -1,0 +1,10 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Http\Controllers\$DIRECTORY_UPPER_CAMEL_CASE$;
+
+use App\Http\Controllers\Controller;
+
+class $CONTROLLER_NAME_UPPER_CAMEL_CASE$Controller extends Controller
+{
+    //
+}

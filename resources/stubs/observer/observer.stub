@@ -1,0 +1,23 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Observers;
+
+use Modules\$MODULE_UPPER_CAMEL_CASE$\Entities\$ENTITY_UPPER_CAMEL_CASE$;
+
+class $ENTITY_UPPER_CAMEL_CASE$Observer
+{
+    public function created($ENTITY_UPPER_CAMEL_CASE$ $$ENTITY_LOWER_CAMEL_CASE$): void
+    {
+        //
+    }
+
+    public function saved($ENTITY_UPPER_CAMEL_CASE$ $$ENTITY_LOWER_CAMEL_CASE$): void
+    {
+        //
+    }
+
+    public function deleted($ENTITY_UPPER_CAMEL_CASE$ $$ENTITY_LOWER_CAMEL_CASE$): void
+    {
+        //
+    }
+}

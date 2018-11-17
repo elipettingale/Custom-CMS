@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class Create$ENTITY_PLURAL_UPPER_CAMEL_CASE$Table extends Migration
+{
+    public function up()
+    {
+        Schema::create('$ENTITY_PLURAL_LOWER_SNAKE_CASE$', function (Blueprint $table)
+        {
+            // Keys
+            $table->increments('id');
+
+            // Columns
+            $table->string('$MAIN_FIELD_LOWER_SNAKE_CASE$');
+
+            // Config
+            $table->timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('$ENTITY_PLURAL_LOWER_SNAKE_CASE$');
+    }
+}

@@ -1,0 +1,18 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Entities;
+
+use App\Entities\Model;
+use Laracasts\Presenter\PresentableTrait;
+use Modules\$MODULE_UPPER_CAMEL_CASE$\Presenters\$ENTITY_UPPER_CAMEL_CASE$Presenter;
+
+class $ENTITY_UPPER_CAMEL_CASE$ extends Model
+{
+    use PresentableTrait;
+
+    protected $presenter = $ENTITY_UPPER_CAMEL_CASE$Presenter::class;
+
+    protected $fillable = [
+        '$MAIN_FIELD_LOWER_SNAKE_CASE$'
+    ];
+}

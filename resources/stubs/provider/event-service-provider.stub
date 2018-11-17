@@ -1,0 +1,12 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Providers;
+
+use App\Providers\EventServiceProvider as IlluminateEventServiceProvider;
+
+class EventServiceProvider extends IlluminateEventServiceProvider
+{
+    protected $listen = [
+        //
+    ];
+}

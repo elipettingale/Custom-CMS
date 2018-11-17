@@ -1,0 +1,17 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Providers;
+
+use Illuminate\Contracts\Auth\Access\Gate;
+use Illuminate\Support\ServiceProvider;
+use Joshbrw\LaravelPermissions\Traits\RegistersPermissions;
+
+class PermissionServiceProvider extends ServiceProvider
+{
+    use RegistersPermissions;
+
+    public function boot(Gate $gate)
+    {
+        //
+    }
+}

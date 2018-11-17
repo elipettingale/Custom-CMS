@@ -1,0 +1,15 @@
+.swal-modal.alert-success, .swal-modal.alert-danger, .swal-modal.alert-info {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  height: 50px;
+  margin: 0;
+  width: auto;
+  .swal-text {
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+    max-width: unset !important;
+    padding: 0 20px;
+  }
+}

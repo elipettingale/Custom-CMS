@@ -1,0 +1,21 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Events\$ENTITY_UPPER_CAMEL_CASE$;
+
+use Modules\$MODULE_UPPER_CAMEL_CASE$\Entities\$ENTITY_UPPER_CAMEL_CASE$;
+use Modules\$MODULE_UPPER_CAMEL_CASE$\Events\$ENTITY_UPPER_CAMEL_CASE$Event;
+
+class $EVENT_NAME_UPPER_CAMEL_CASE$ implements $ENTITY_UPPER_CAMEL_CASE$Event
+{
+    private $$ENTITY_LOWER_CAMEL_CASE$;
+
+    public function __construct($ENTITY_UPPER_CAMEL_CASE$ $$ENTITY_LOWER_CAMEL_CASE$)
+    {
+        $this->$ENTITY_LOWER_CAMEL_CASE$ = $$ENTITY_LOWER_CAMEL_CASE$;
+    }
+
+    public function get$ENTITY_UPPER_CAMEL_CASE$(): $ENTITY_UPPER_CAMEL_CASE$
+    {
+        return $this->$ENTITY_LOWER_CAMEL_CASE$;
+    }
+}

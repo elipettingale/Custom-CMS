@@ -1,0 +1,33 @@
+<?php
+
+namespace Modules\$MODULE_UPPER_CAMEL_CASE$\Transformers;
+
+use Modules\Core\Services\EntityTransformer;
+use Modules\$MODULE_UPPER_CAMEL_CASE$\Entities\$ENTITY_UPPER_CAMEL_CASE$;
+
+class $ENTITY_UPPER_CAMEL_CASE$Transformer extends EntityTransformer
+{
+    protected $attributes = [
+        'id',
+        'created_at',
+        'updated_at'
+    ];
+
+    /**
+     * @param $ENTITY_UPPER_CAMEL_CASE$ $entity
+     * @return array
+     */
+    protected function data($entity): array
+    {
+        return [
+            //
+        ];
+    }
+
+    protected function relations(): array
+    {
+        return [
+            //
+        ];
+    }
+}
