@@ -8,9 +8,6 @@
 @section('content')
 
     <div class="page">
-        <div class="page-header">
-            <h2>{{ $page->title }}</h2>
-        </div>
         <div class="page-body">
             <div class="row">
                 <div class="col-12 col-xl-6">
