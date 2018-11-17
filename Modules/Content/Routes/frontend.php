@@ -1,30 +1,18 @@
 <?php
 
-use Illuminate\Routing\Router;
 use Modules\Content\Http\Controllers\Frontend\PageController;
 
-$router = app('router');
+$router->get('/', function() {
+    $controller = app(PageController::class);
+    return $controller->show(request(), config('content.homepage-slug'));
+})->name('pages.home');
 
-$router->group([
-    'namespace' => 'Modules\Content\Http\Controllers\Frontend',
-    'middleware' => ['web', 'frontend'],
-    'prefix' => '',
-    'as' => 'frontend.'
-], function (Router $router) {
+$router->get('{slug}', function($slug) {
+   $controller = app(PageController::class);
 
-    $router->get('/', function() {
-        $controller = app(PageController::class);
-        return $controller->show(request(), config('content.homepage-slug'));
-    })->name('pages.home');
+   if ($slug === config('content.homepage-slug')) {
+       return redirect()->to('/');
+   }
 
-    $router->get('{slug}', function($slug) {
-       $controller = app(PageController::class);
-
-       if ($slug === config('content.homepage-slug')) {
-           return redirect()->to('/');
-       }
-
-       return $controller->show(request(), $slug);
-    })->name('pages.show');
-
-});
+   return $controller->show(request(), $slug);
+})->name('pages.show');

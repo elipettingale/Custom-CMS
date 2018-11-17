@@ -2,24 +2,12 @@
 
 use Illuminate\Routing\Router;
 
-$router = app('router');
+$router->resource('pages', 'PageController');
 
 $router->group([
-    'namespace' => 'Modules\Content\Http\Controllers\Admin',
-    'middleware' => ['web', 'auth'],
-    'prefix' => 'admin',
-    'as' => 'admin.'
-], function (Router $router) {
-
-    $router->resource('pages', 'PageController');
-
-});
-
-$router->group([
-    'namespace' => 'Modules\Content\Http\Controllers\Admin\Page',
-    'middleware' => ['web', 'auth'],
-    'prefix' => 'admin/pages/{page}',
-    'as' => 'admin.pages.'
+    'namespace' => 'Page',
+    'prefix' => 'pages/{page}',
+    'as' => 'pages.'
 ], function (Router $router) {
 
     $router->put('mark-as-live', [
