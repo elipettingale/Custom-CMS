@@ -6,10 +6,10 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         @foreach($slides as $index => $slide)
-            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}" style="background-image: url({{ $slide['image'] }})">
+            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}" style="background-image: url({{ $slide }})">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3 class="display-4">{{ $slide['title'] }}</h3>
-                    <p class="lead">{{ $slide['text'] }}</p>
+                    <h3 class="display-4"></h3>
+                    <p class="lead"></p>
                 </div>
             </div>
         @endforeach
