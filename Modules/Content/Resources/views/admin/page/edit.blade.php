@@ -14,7 +14,7 @@
             </a>
         @endcan
         @can('edit', \Modules\Seo\Entities\SeoProfile::class)
-            <a href="{{ route('admin.pages.seo.edit', $page->id) }}" class="dropdown-item dropdown-info">
+            <a href="{{ route('admin.seo.edit', ['pages', $page->id]) }}" class="dropdown-item dropdown-info">
                 <i class="fa fa-edit"></i> Edit Seo Profile
             </a>
         @endcan

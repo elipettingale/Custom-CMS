@@ -4,24 +4,19 @@ use Modules\Seo\Http\Controllers\Admin\SeoController;
 use Modules\News\Entities\Post;
 use Modules\Content\Entities\Page;
 
-/**
- * Modules\News\Entities\Post
- */
-$router->get('posts/{post}/seo/edit', function(Post $post) {
-    return app(SeoController::class)->edit($post);
-})->name('posts.seo.edit');
+$map = [
+    'posts' => Post::class,
+    'pages' => Page::class
+];
 
-$router->put('posts/{post}/seo', function(Post $post) {
-    return app(SeoController::class)->update($post, request());
-})->name('posts.seo.update');
+$router->get('{entity}/{id}/seo/edit', function($entity, $id) use ($map) {
+    return app(SeoController::class)->edit(
+        $map[$entity]::findOrFail($id)
+    );
+})->name('seo.edit');
 
-/**
- * Modules\Content\Entities\Page
- */
-$router->get('pages/{page}/seo/edit', function(Page $page) {
-    return app(SeoController::class)->edit($page);
-})->name('pages.seo.edit');
-
-$router->put('pages/{page}/seo', function(Page $page) {
-    return app(SeoController::class)->update($page, request());
-})->name('pages.seo.update');
+$router->put('{entity}/{id}/seo', function($entity, $id) use ($map) {
+    return app(SeoController::class)->update(
+        $map[$entity]::findOrFail($id), request()
+    );
+})->name('seo.update');

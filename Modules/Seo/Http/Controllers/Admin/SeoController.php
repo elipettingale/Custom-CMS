@@ -38,7 +38,7 @@ class SeoController extends Controller
         register_breadcrumb(upper_case($this->config['module']), route('admin.' . lower_hyphen_case($this->config['entity_plural']) . '.index'));
 
         register_breadcrumb('Edit ' . upper_case($this->config['entity']) . ': ' . $this->config['identifier'], route('admin.' . lower_hyphen_case($this->config['entity_plural']) . '.edit', $entity->id));
-        register_breadcrumb('Edit ' . upper_case($this->config['entity']) . ' Seo: ' . $this->config['identifier'], route('admin.' . lower_hyphen_case($this->config['entity_plural']) . '.seo.edit', $entity->id));
+        register_breadcrumb('Edit ' . upper_case($this->config['entity']) . ' Seo: ' . $this->config['identifier'], route('admin.seo.edit', [lower_hyphen_case($this->config['entity_plural']), $entity->id]));
 
         return view('seo::admin.seo-profile.edit', [
             'entity' => $entity,
