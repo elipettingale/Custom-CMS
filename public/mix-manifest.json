@@ -1,6 +1,9 @@
 {
-    "/js/admin/app.js": "/js/admin/app.js",
-    "/css/admin/app.css": "/css/admin/app.css",
-    "/css/frontend/app.css": "/css/frontend/app.css",
-    "/js/frontend/app.js": "/js/frontend/app.js"
+    "/js/admin/app.js": "/js/admin/app.js?id=beda53ae643f1187a9bb",
+    "/css/admin/app.css": "/css/admin/app.css?id=638b704747da1384fc3e",
+    "/css/frontend/app.css": "/css/frontend/app.css?id=dda90d492fcad298a487",
+    "/js/frontend/app.js": "/js/frontend/app.js?id=a55b886f46e79465790b",
+    "/js/admin/audit.js": "/js/admin/audit.js?id=10968a8aaf737ece6bd9",
+    "/js/admin/dashboard.js": "/js/admin/dashboard.js?id=477dfcc686cb15cc51d5",
+    "/css/admin/dashboard.css": "/css/admin/dashboard.css?id=073236115791d44e9780"
 }
