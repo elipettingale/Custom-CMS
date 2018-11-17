@@ -4,6 +4,7 @@ namespace Modules\Seo\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\Core\Services\MessageFactory;
 use Modules\Seo\Contracts\HasSeoProfile;
 use Modules\Seo\Entities\SeoProfile;
 use Modules\Seo\Managers\SeoProfileManager;
@@ -59,10 +60,10 @@ class SeoController extends Controller
 
         if (!$this->seoProfileManager->createOrUpdate($entity, $request->all())) {
             return redirect()->back()
-                ->with('error', trans_error('messages.error.entity-updated', ['entity' => upper_case($this->config['entity'])]));
+                ->with('error', MessageFactory::entityNotUpdated(upper_case($this->config['entity'])));
         }
 
         return redirect()->back()
-            ->with('success', trans('messages.success.entity-updated', ['entity' => upper_case($this->config['entity'])]));
+            ->with('success', MessageFactory::entityUpdated(upper_case($this->config['entity'])));
     }
 }
