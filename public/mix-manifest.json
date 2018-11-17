@@ -2,8 +2,5 @@
     "/js/admin/app.js": "/js/admin/app.js",
     "/js/frontend/app.js": "/js/frontend/app.js",
     "/css/frontend/app.css": "/css/frontend/app.css",
-    "/css/admin/app.css": "/css/admin/app.css",
-    "/js/admin/audit.js": "/js/admin/audit.js",
-    "/js/admin/dashboard.js": "/js/admin/dashboard.js",
-    "/css/admin/dashboard.css": "/css/admin/dashboard.css"
+    "/css/admin/app.css": "/css/admin/app.css"
 }
