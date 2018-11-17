@@ -1,9 +1,9 @@
 {
-    "/js/admin/app.js": "/js/admin/app.js",
-    "/js/frontend/app.js": "/js/frontend/app.js",
-    "/css/frontend/app.css": "/css/frontend/app.css",
-    "/css/admin/app.css": "/css/admin/app.css",
-    "/js/admin/audit.js": "/js/admin/audit.js",
-    "/js/admin/dashboard.js": "/js/admin/dashboard.js",
-    "/css/admin/dashboard.css": "/css/admin/dashboard.css"
+    "/js/admin/app.js": "/js/admin/app.js?id=1e6412b91e00dfa97cf3",
+    "/js/frontend/app.js": "/js/frontend/app.js?id=fde422162a5541d0ee2b",
+    "/css/frontend/app.css": "/css/frontend/app.css?id=dfaa84cf74b431ad49fb",
+    "/css/admin/app.css": "/css/admin/app.css?id=638b704747da1384fc3e",
+    "/js/admin/audit.js": "/js/admin/audit.js?id=10968a8aaf737ece6bd9",
+    "/js/admin/dashboard.js": "/js/admin/dashboard.js?id=477dfcc686cb15cc51d5",
+    "/css/admin/dashboard.css": "/css/admin/dashboard.css?id=073236115791d44e9780"
 }
