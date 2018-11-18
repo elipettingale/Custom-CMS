@@ -12,16 +12,22 @@ class HeroSlider implements Shortcode
     }
 
     /**
-     * @param string $args
+     * @param string $content
      * @return string
      * @throws \Throwable
      */
-    public function render(string $args): string
+    public function render(string $content): string
     {
-        preg_match_all(shortcode_pattern('slide'), $args, $matches);
-        $slides = $matches[1];
+        $slides = [];
+
+        if (preg_match_all(shortcode_pattern('slide'), $content, $matches)) {
+            foreach ($matches[0] as $index => $pattern) {
+                $slides[] = $matches[1][$index];
+            }
+        }
 
         return view('content::frontend.hero-slider.show', [
+            'ref' => random_ref('hero-slider-'),
             'slides' => $slides
         ])->render();
     }

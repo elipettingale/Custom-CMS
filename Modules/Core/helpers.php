@@ -99,3 +99,11 @@ if (!function_exists('shortcode_pattern'))
         return "/\[$signature\](.*?)\[\/$signature\]/";
     }
 }
+
+if (!function_exists('random_ref'))
+{
+    function random_ref(string $prefix = '', string $suffix = ''): string
+    {
+        return $prefix . md5(random_bytes(10)) . $suffix;
+    }
+}
