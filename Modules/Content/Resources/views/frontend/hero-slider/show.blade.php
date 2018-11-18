@@ -1,7 +1,7 @@
-<div id="hero-slider" class="carousel slide" data-ride="carousel">
+<div id="{{ $ref }}" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         @foreach($slides as $index => $slide)
-            <li data-target="#hero-slider" data-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}"></li>
+            <li data-target="#{{ $ref }}" data-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}"></li>
         @endforeach
     </ol>
     <div class="carousel-inner" role="listbox">
@@ -14,11 +14,11 @@
             </div>
         @endforeach
     </div>
-    <a class="carousel-control-prev" href="#hero-slider" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#{{ $ref }}" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#hero-slider" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#{{ $ref }}" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>

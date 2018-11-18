@@ -27,6 +27,7 @@ class HeroSlider implements Shortcode
         }
 
         return view('content::frontend.hero-slider.show', [
+            'ref' => random_ref('hero-slider-'),
             'slides' => $slides
         ])->render();
     }
