@@ -12,14 +12,14 @@ class LatestPostsShortcode implements Shortcode
     }
 
     /**
-     * @param string $count
+     * @param string $content
      * @return string
      * @throws \Throwable
      */
-    public function render(string $count): string
+    public function render(string $content): string
     {
         return view('news::frontend.post.latest', [
-           'count' => $count
+           'count' => $content
         ])->render();
     }
 }

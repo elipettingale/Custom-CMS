@@ -20,8 +20,8 @@ class Shortcode implements ShortcodeContract
         return $this->signature;
     }
 
-    public function render(string $args): string
+    public function render(string $content): string
     {
-        return \call_user_func($this->render, $args);
+        return \call_user_func($this->render, $content);
     }
 }
