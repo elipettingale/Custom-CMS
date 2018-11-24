@@ -2,7 +2,7 @@
 
 namespace Modules\Core\Repositories\Eloquent;
 
-use Modules\Core\Contracts\Addressable;
+use Modules\Core\Contracts\HasAddress;
 use Illuminate\Support\Collection;
 use Modules\Core\Entities\Address;
 use Modules\Core\Repositories\AddressRepository;
@@ -21,7 +21,7 @@ class EloquentAddressRepository implements AddressRepository
         return new $this->address;
     }
 
-    public function create(Addressable $entity, array $data): Address
+    public function create(HasAddress $entity, array $data): Address
     {
         $address = $this->createNewInstance();
         $address->fill($data);
