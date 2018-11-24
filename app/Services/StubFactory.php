@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Core\Services;
+namespace App\Services;
 
 use EliPett\CodeGeneration\Structs\Stub;
 
