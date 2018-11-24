@@ -6,7 +6,8 @@
     "active": 1,
     "order": 0,
     "providers": [
-        "Modules\\Media\\Providers\\MediaServiceProvider"
+        "Modules\\Media\\Providers\\MediaServiceProvider",
+        "Modules\\Media\\Providers\\MediaConversionServiceProvider"
     ],
     "aliases": {},
     "files": [
