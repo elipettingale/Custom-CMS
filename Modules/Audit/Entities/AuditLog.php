@@ -23,7 +23,7 @@ class AuditLog extends Model
 
     public function auditable()
     {
-        return $this->morphTo();
+        return $this->morphTo('auditable');
     }
 
     public function user()
