@@ -8,11 +8,11 @@ use Modules\Content\Repositories\PageRepository;
 
 class PageSeeder extends Seeder
 {
-    private $postRepository;
+    private $pageRepository;
 
-    public function __construct(PageRepository $postRepository)
+    public function __construct(PageRepository $pageRepository)
     {
-        $this->postRepository = $postRepository;
+        $this->pageRepository = $pageRepository;
     }
 
     public function run()
@@ -21,7 +21,7 @@ class PageSeeder extends Seeder
         $pages = factory(Page::class, (int) $this->command->ask('Number of Pages', 0))->raw();
 
         foreach ($pages as $page) {
-            $this->postRepository->create($page);
+            $this->pageRepository->create($page);
         }
     }
 }

@@ -3,6 +3,7 @@
 namespace Modules\Content\Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Modules\Content\Database\Seeders\Page\HomePageSeeder;
 use Modules\Content\Database\Seeders\Page\PageSeeder;
 
 class ContentDatabaseSeeder extends Seeder
@@ -12,6 +13,7 @@ class ContentDatabaseSeeder extends Seeder
         unguard_entities();
         disable_foreign_key_checks();
 
+        $this->call(HomePageSeeder::class);
         $this->call(PageSeeder::class);
     }
 }
