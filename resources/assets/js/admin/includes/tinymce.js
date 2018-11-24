@@ -24,7 +24,7 @@ tinymce.init({
         form.append("entity_type", textarea.attr('data-entity-type'));
         form.append("entity_id", textarea.attr('data-entity-id'));
         form.append("media_files[]", blobInfo.blob());
-        form.append("media_collection", tinymce.activeEditor.id + '_images');
+        form.append("media_collection", 'wysiwyg_images');
 
         axios.post('/api/media', form)
         .then(({data}) => {
