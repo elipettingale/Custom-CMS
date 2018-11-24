@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\Media\Contracts\HasMedia;
+use Modules\Media\Enums\MediaConversions;
 use Modules\Media\Traits\HasMediaTrait;
 use Modules\News\Presenters\PostPresenter;
 use Modules\Seo\Contracts\HasSeoProfile;
@@ -39,7 +40,10 @@ class Post extends Model implements HasMedia, HasStatus, HasSeoProfile
         return [
             'featured_image' => [
                 'multiple' => false,
-                'conversions' => ['thumb'],
+                'conversions' => [
+                    MediaConversions::THUMB,
+                    MediaConversions::WIDE
+                ],
                 'defaults' => [
                     '*' => 'asset::images/image-upload-placeholder.jpg'
                 ]
