@@ -2,21 +2,21 @@
 @component('mail::message', ['subcopy' => 'Subcopy'])
 
 @component('mail::panel')
-    Panel
+Panel
 @endcomponent
 
 @component('mail::promotion')
-    Promotion
+Promotion
 @endcomponent
 
 @component('mail::button', ['url' => 'http://www.google.com'])
-    Button
+Button
 @endcomponent
 
 @component('mail::table')
-    |  Test  |  Test  |  Test  |
-    |  ----  |  ----  |  ----  |
-    |  Item  |  Item  |  Item  |
+|  Test  |  Test  |  Test  |
+|  ----  |  ----  |  ----  |
+|  Item  |  Item  |  Item  |
 @endcomponent
 
 ---
