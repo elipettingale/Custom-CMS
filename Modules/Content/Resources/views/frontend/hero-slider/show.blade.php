@@ -1,4 +1,4 @@
-<div id="{{ $ref }}" class="carousel slide" data-ride="carousel">
+<div id="{{ $ref }}" class="carousel slide hero-slider" data-ride="carousel">
     <ol class="carousel-indicators">
         @foreach($slides as $index => $slide)
             <li data-target="#{{ $ref }}" data-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}"></li>
