@@ -54,8 +54,10 @@ class Page extends Model implements HasStatus, HasMedia, HasSeoProfile
 
     public function __get($key)
     {
-        if (array_key_exists($key, $this->getAttribute('data'))) {
-            return $this->getAttribute('data')[$key];
+        if ($data = $this->getAttribute('data')) {
+            if (\array_key_exists($key, $data)) {
+                return $data[$key];
+            }
         }
 
         return parent::__get($key);
