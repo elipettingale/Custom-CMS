@@ -1,10 +1,20 @@
 .posts {
-  .post {
+  &.latest-posts {
+    margin-bottom: -30px;
+  }
+
+  .post-preview {
     margin-bottom: 30px;
 
     .featured-image {
       width: 100%;
       height: auto;
+    }
+
+    .post-details {
+      margin-bottom: 10px;
+      font-size: 90%;
+      font-style: italic;
     }
 
     .card-body {
@@ -16,5 +26,16 @@
         margin-bottom: 20px;
       }
     }
+  }
+}
+
+.post {
+  .post-title, .post-details, .featured-image {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+  .featured-image {
+    width: 100%;
   }
 }

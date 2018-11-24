@@ -6,12 +6,13 @@
 "mixins/variables",
 "~bootstrap/scss/bootstrap",
 "~bootstrap-select/sass/bootstrap-select",
-"~bootstrap-datepicker/dist/css/bootstrap-datepicker3.css",
-"mixins/news"
+"~bootstrap-datepicker/dist/css/bootstrap-datepicker3.css"
 ;
 
 // Mixins
 @import
 "mixins/mixins",
-"mixins/global"
+"mixins/global",
+"mixins/news",
+"mixins/pages"
 ;

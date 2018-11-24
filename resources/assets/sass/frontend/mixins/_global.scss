@@ -1,5 +1,24 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: calc(100% - #{$navigation-height});
+}
+
+.main-navigation {
+  min-height: $navigation-height;
+}
+
 .main-container {
-  padding-top: 80px;
+  margin-top: $navigation-height;
+  padding-top: map_get($main-container-padding, 'top');
+  padding-bottom: map_get($main-container-padding, 'bottom');
+  min-height: calc(100% - #{$footer-height});
+}
+
+.main-footer {
+  height: $footer-height;
 }
 
 .carousel-item {
@@ -10,4 +29,20 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.sidebar {
+  .sidebar-item:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
+
+.pagination {
+  margin: 0;
+}
+
+.hr-b {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }

@@ -1,0 +1,11 @@
+.page {
+  .page-body {
+    p:empty:first-child {
+      display: none;
+    }
+
+    p:empty:last-child {
+      display: none;
+    }
+  }
+}

@@ -11595,16 +11595,70 @@ select.selectpicker {
   float: none;
 }
 
-.posts .post {
+html {
+  height: 100%;
+}
+
+body {
+  height: calc(100% - 56px);
+}
+
+.main-navigation {
+  min-height: 56px;
+}
+
+.main-container {
+  margin-top: 56px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  min-height: calc(100% - 120px);
+}
+
+.main-footer {
+  height: 120px;
+}
+
+.carousel-item {
+  height: 65vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  background-size: cover;
+}
+
+.sidebar .sidebar-item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.pagination {
+  margin: 0;
+}
+
+.hr-b {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.posts.latest-posts {
+  margin-bottom: -30px;
+}
+
+.posts .post-preview {
   margin-bottom: 30px;
 }
 
-.posts .post .featured-image {
+.posts .post-preview .featured-image {
   width: 100%;
   height: auto;
 }
 
-.posts .post .card-body {
+.posts .post-preview .post-details {
+  margin-bottom: 10px;
+  font-size: 90%;
+  font-style: italic;
+}
+
+.posts .post-preview .card-body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11617,18 +11671,27 @@ select.selectpicker {
           justify-content: space-between;
 }
 
-.posts .post .card-body .card-text {
+.posts .post-preview .card-body .card-text {
   margin-bottom: 20px;
 }
 
-.main-container {
-  padding-top: 80px;
+.post .post-title,
+.post .post-details,
+.post .featured-image {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
-.carousel-item {
-  height: 65vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  background-size: cover;
+.post .featured-image {
+  width: 100%;
+}
+
+.page .page-body p:empty:first-child {
+  display: none;
+}
+
+.page .page-body p:empty:last-child {
+  display: none;
 }
 
