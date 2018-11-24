@@ -2,7 +2,7 @@
 
 namespace Modules\Core\Entities;
 
-use App\Presenters\AddressPresenter;
+use Modules\Core\Presenters\AddressPresenter;
 use Illuminate\Database\Eloquent\Model;
 use Laracasts\Presenter\PresentableTrait;
 
@@ -18,4 +18,9 @@ class Address extends Model
         'city',
         'postcode'
     ];
+
+    public function addressable()
+    {
+        return $this->morphTo('addressable');
+    }
 }
