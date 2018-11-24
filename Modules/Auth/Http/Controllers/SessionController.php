@@ -46,7 +46,7 @@ class SessionController extends Controller
                 'user' => $user->present()->fullName
             ]);
 
-        return redirect()->route('admin.dashboard.show')
+        return redirect()->intended(route('admin.dashboard.show'))
             ->with('success', trans('auth::messages.success.login', [
                 'user' => $user->first_name
             ]));

@@ -16,7 +16,8 @@ class AuthenticateWithSentinel
 
     public function handle(Request $request, Closure $next)
     {
-        if(!$this->sentinel->check()) {
+        if (!$this->sentinel->check()) {
+            session()->put('url.intended', $request->url());
             return redirect()->route('admin.login.show');
         }
 
