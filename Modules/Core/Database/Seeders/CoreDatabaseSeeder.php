@@ -7,15 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class CoreDatabaseSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        Model::unguard();
+        unguard_entities();
+        disable_foreign_key_checks();
 
-        // $this->call("OthersTableSeeder");
+        // $this->call(Seeder::class);
     }
 }
