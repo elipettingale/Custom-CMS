@@ -20,10 +20,14 @@ class PostController extends Controller
         $this->seoProfileRepository = $seoProfileRepository;
     }
 
-    public function index(): View
+    public function index(Request $request): View
     {
+        if (!$search = $request->get('search')) {
+            $search = '';
+        }
+
         return view('news::frontend.post.index', [
-            'posts' => $this->postRepository->getFrontendListing()
+            'posts' => $this->postRepository->getFrontendListing($search)
         ]);
     }
 

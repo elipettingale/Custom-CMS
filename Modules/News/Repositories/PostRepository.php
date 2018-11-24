@@ -5,6 +5,7 @@ namespace Modules\News\Repositories;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Modules\News\Entities\Post;
+use Modules\News\Entities\PostCategory;
 
 interface PostRepository
 {
@@ -21,6 +22,7 @@ interface PostRepository
 
     public function getAll(): Collection;
     public function getLatestWhereLive(int $limit): Collection;
-    public function getFrontendListing(): LengthAwarePaginator;
+    public function getFrontendListing(string $search): LengthAwarePaginator;
     public function getAdminListing(): Collection;
+    public function getFrontendCategoryListing(PostCategory $category): LengthAwarePaginator;
 }

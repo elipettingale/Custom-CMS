@@ -4,6 +4,8 @@
 @section('content')
 
     <div class="col-12 col-lg-8">
+        <h1 class="hr-b">{{ $category->name }}</h1>
+
         <div class="row posts">
             @forelse($posts as $post)
                 <div class="col-12 col-lg-6 d-flex">

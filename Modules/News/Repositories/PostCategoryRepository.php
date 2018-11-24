@@ -13,6 +13,8 @@ interface PostCategoryRepository
     public function delete(PostCategory $postCategory): bool;
 
     public function findOrFail(int $id): PostCategory;
+    public function find(int $id): ?PostCategory;
+    public function findOrFailBySlug(string $slug): PostCategory;
 
     public function getAll(): Collection;
     public function getAdminListing(): Collection;

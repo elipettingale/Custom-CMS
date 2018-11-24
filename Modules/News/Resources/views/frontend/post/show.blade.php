@@ -7,14 +7,23 @@
 
 @section('content')
 
-    <div class="post">
-        <img class="featured-image" src="{{ $post->featured_image->getUrl('thumb', true) }}">
-        <div class="post-header">
-            <h2>{{ $post->title }}</h2>
-            <span>{{ $post->present()->diffForHumans('published_at') }}</span>
+    <div class="col-12 col-lg-8">
+        <div class="post">
+            <h1 class="post-title">{{ $post->title }}</h1>
+            <div class="post-details">
+                <span>Posted: {{ $post->present()->date('published_at') }}</span>
+            </div>
+            <img class="featured-image" src="{{ $post->featured_image->getUrl('wide', true) }}">
+            <div class="post-content">
+                {!! $post->present()->content('content') !!}
+            </div>
         </div>
-        <div class="post-body">
-            {!! $post->present()->content('content') !!}
+    </div>
+
+    <div class="col-12 col-lg-4">
+        <div class="sidebar">
+            @include('news::frontend.post.partials.search')
+            @include('news::frontend.post.partials.post-categories')
         </div>
     </div>
 

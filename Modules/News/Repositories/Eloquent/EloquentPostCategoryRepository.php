@@ -4,6 +4,7 @@ namespace Modules\News\Repositories\Eloquent;
 
 use EliPett\ListingBuilder\Services\BuildListing;
 use Illuminate\Support\Collection;
+use Modules\Core\Enums\Status;
 use Modules\News\Entities\PostCategory;
 use Modules\News\Repositories\PostCategoryRepository;
 
@@ -46,6 +47,20 @@ class EloquentPostCategoryRepository implements PostCategoryRepository
     {
         return $this->postCategory
             ->where('id', $id)
+            ->firstOrFail();
+    }
+
+    public function find(int $id): ?PostCategory
+    {
+        return $this->postCategory
+            ->where('id', $id)
+            ->first();
+    }
+
+    public function findOrFailBySlug(string $slug): PostCategory
+    {
+        return $this->postCategory
+            ->where('slug', $slug)
             ->firstOrFail();
     }
 

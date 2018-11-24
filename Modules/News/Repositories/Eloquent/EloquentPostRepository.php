@@ -8,6 +8,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Modules\News\Entities\Post;
 use Modules\Core\Enums\Status;
+use Modules\News\Entities\PostCategory;
 use Modules\News\Repositories\PostRepository;
 
 class EloquentPostRepository implements PostRepository
@@ -101,9 +102,11 @@ class EloquentPostRepository implements PostRepository
             ->get();
     }
 
-    public function getFrontendListing(): LengthAwarePaginator
+    public function getFrontendListing(string $search): LengthAwarePaginator
     {
         return BuildListing::from($this->post)
+            ->where('title', 'LIKE', "%$search%")
+            ->orWhere('content', 'LIKE', "%$search%")
             ->wherePublished()
             ->orderBy('published_at', 'desc')
             ->paginate(12);
@@ -117,5 +120,14 @@ class EloquentPostRepository implements PostRepository
                 'status'
             ])
             ->get();
+    }
+
+    public function getFrontendCategoryListing(PostCategory $category): LengthAwarePaginator
+    {
+        return BuildListing::from($this->post)
+            ->wherePublished()
+            ->orderBy('published_at', 'desc')
+            ->where('category_id', $category->id)
+            ->paginate(12);
     }
 }
