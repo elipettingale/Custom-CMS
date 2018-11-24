@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'name' => 'Auth'
+    'name' => 'Auth',
+    'automatically_login_developer' => true
 ];
