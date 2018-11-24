@@ -15,6 +15,7 @@ class CreatePostCategoriesTable extends Migration
 
             // Columns
             $table->string('name');
+            $table->string('slug')->unique();
 
             // Config
             $table->timestamps();
