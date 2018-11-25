@@ -22,7 +22,7 @@ class AuthenticateWithSentinel
     public function handle(Request $request, Closure $next)
     {
         if (!$this->sentinel->check()) {
-            if (env('APP_ENV') !== 'local' | config('auth.automatically_login_developer') === false) {
+            if (!$this->shouldLoginDeveloper()) {
                 return $this->redirectToLogin($request->url());
             }
 
@@ -30,6 +30,11 @@ class AuthenticateWithSentinel
         }
 
         return $next($request);
+    }
+
+    private function shouldLoginDeveloper(): bool
+    {
+        return env('APP_ENV') === 'local' && config('auth.automatically_login_developer') === true;
     }
 
     private function redirectToLogin(string $intended): RedirectResponse
