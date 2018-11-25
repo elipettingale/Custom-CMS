@@ -8,8 +8,8 @@
             @slot('entity', $post)
             @slot('mediaCollection', 'featured_image')
         @endcomponent
-        <div class="thumbnails">
-            <img class="thumbnail" src="{{ $post->featured_image->getUrl('thumb', true) }}">
-        </div>
+        @component('components.admin.image-thumbnails')
+            @slot('media', $post->featured_image)
+        @endcomponent
     @endslot
 @endcomponent

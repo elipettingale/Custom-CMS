@@ -6,8 +6,8 @@
     <input type="hidden" name="media_collection" value="{{ $mediaCollection }}">
     <div class="form-group">
         <div class="custom-file">
-            <input type="file" class="custom-file-input" id="media_files" name="media_files[]" {{ isset($multiple) && $multiple === true ? 'multiple' : '' }}>
-            <label class="custom-file-label" for="media_files">Upload Image{{ isset($multiple) && $multiple === true ? '(s)' : '' }}</label>
+            <input type="file" class="custom-file-input" id="media_files" name="media_files[]" {{ $entity->mediaDefinitions()[$mediaCollection]['multiple'] === true ? 'multiple' : '' }}>
+            <label class="custom-file-label" for="media_files">Upload Image{{ $entity->mediaDefinitions()[$mediaCollection]['multiple'] === true ? '(s)' : '' }}</label>
         </div>
     </div>
 </form>
