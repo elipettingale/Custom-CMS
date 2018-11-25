@@ -12764,8 +12764,34 @@ ul.checklist li.checklist-item.danger:after {
   content: '\F00D';
 }
 
+.thumbnails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: -1rem;
+}
+
 .thumbnails .thumbnail {
   width: 100%;
+  height: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 768px) {
+  .thumbnails .thumbnail {
+    max-width: calc(50% - 0.5rem);
+  }
 }
 
 .mce-tinymce {

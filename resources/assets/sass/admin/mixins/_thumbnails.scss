@@ -1,5 +1,20 @@
 .thumbnails {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: -1rem;
+
   .thumbnail {
     width: 100%;
+    height: auto;
+    flex: 1;
+    margin-bottom: 1rem;
+  }
+  
+  @media only screen and (max-width: 1200px) and (min-width: 768px) {
+    .thumbnail {
+      max-width: calc(50% - 0.5rem);
+    }
   }
 }
