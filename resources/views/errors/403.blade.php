@@ -1,4 +1,4 @@
-@extends('layouts.frontend.blank')
+@extends('layouts.frontend.main')
 @section('title', '403')
 
 @section('content')
