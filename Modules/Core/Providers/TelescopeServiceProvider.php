@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Modules\Core\Providers;
 
 use Laravel\Telescope\Telescope;
 use Illuminate\Support\Facades\Gate;
@@ -16,7 +16,7 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
      */
     public function register()
     {
-        // Telescope::night();
+//         Telescope::night();
 
         $this->hideSensitiveRequestDetails();
 
