@@ -7,3 +7,4 @@ require('bootstrap-select');
 require('./includes/core');
 require('./includes/selectpicker');
 require('./includes/datepicker');
+require('./includes/activeTimer');

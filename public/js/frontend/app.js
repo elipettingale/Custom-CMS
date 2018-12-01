@@ -62146,6 +62146,7 @@ __webpack_require__(168);
 __webpack_require__(254);
 __webpack_require__(255);
 __webpack_require__(256);
+__webpack_require__(257);
 
 /***/ }),
 /* 252 */
@@ -68543,6 +68544,122 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 $('.datepicker').datepicker({
     format: "dd/mm/yyyy",
     todayHighlight: true
+});
+
+/***/ }),
+/* 257 */
+/***/ (function(module, exports) {
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ActiveTimer = function () {
+    function ActiveTimer(element) {
+        _classCallCheck(this, ActiveTimer);
+
+        this.element = $(element);
+        this.time = {
+            day: 0,
+            hour: 0,
+            minute: 0,
+            second: 0
+        };
+
+        this.initialize();
+        this.start();
+    }
+
+    _createClass(ActiveTimer, [{
+        key: 'initialize',
+        value: function initialize() {
+            var data = this.element.html().split(' ');
+
+            for (var i = 0; i < data.length; i = i + 2) {
+                var key = data[i + 1];
+                var value = parseInt(data[i]);
+
+                if (key === 'days' || key === 'day') {
+                    this.time.day = value;
+                }
+
+                if (key === 'hours' || key === 'hour') {
+                    this.time.hour = value;
+                }
+
+                if (key === 'minutes' || key === 'minute') {
+                    this.time.minute = value;
+                }
+
+                if (key === 'seconds' || key === 'second') {
+                    this.time.second = value;
+                }
+            }
+        }
+    }, {
+        key: 'start',
+        value: function start() {
+            var _this = this;
+
+            window.setInterval(function () {
+                _this.tick();
+                _this.render();
+            }, 1000);
+        }
+    }, {
+        key: 'tick',
+        value: function tick() {
+            if (this.time.second !== 0) {
+                this.time.second = this.time.second - 1;
+                return;
+            }
+
+            if (this.time.minute !== 0) {
+                this.time.minute = this.time.minute - 1;
+                this.time.second = 59;
+                return;
+            }
+
+            if (this.time.hour !== 0) {
+                this.time.hour = this.time.hour - 1;
+                this.time.minute = 59;
+                this.time.second = 59;
+                return;
+            }
+
+            if (this.time.day !== 0) {
+                this.time.day = this.time.day - 1;
+                this.time.hour = 23;
+                this.time.minute = 59;
+                this.time.second = 59;
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var output = [];
+
+            for (var key in this.time) {
+                var value = this.time[key];
+
+                if (value === 1) {
+                    output.push(value + ' ' + key);
+                }
+
+                if (value > 1) {
+                    output.push(value + ' ' + key + 's');
+                }
+            }
+
+            this.element.html(output.join(' '));
+        }
+    }]);
+
+    return ActiveTimer;
+}();
+
+$('.active-timer').each(function () {
+    new ActiveTimer(this);
 });
 
 /***/ })

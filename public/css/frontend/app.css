@@ -11639,6 +11639,14 @@ body {
   margin-bottom: 1rem;
 }
 
+a {
+  color: #17a2b8;
+}
+
+a:hover {
+  color: #138496;
+}
+
 .posts.latest-posts {
   margin-bottom: -30px;
 }
