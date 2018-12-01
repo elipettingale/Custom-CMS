@@ -19,11 +19,7 @@ class SettingsServiceProvider extends ServiceProvider
         /** @var \Modules\Settings\Services\Settings $settings */
         $settings = app('settings');
 
-        $settings->registerItem(new BooleanSetting([
-            'name' => 'Maintenance Mode',
-            'description' => 'Toggle maintenance mode to prevent access to the main website',
-            'key' => 'maintenance_mode'
-        ]));
+        //
     }
 
     private function registerUserSettings()
