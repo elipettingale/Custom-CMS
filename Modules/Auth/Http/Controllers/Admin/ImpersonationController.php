@@ -19,7 +19,6 @@ class ImpersonationController
     public function impersonate(User $user): RedirectResponse
     {
         authorize('impersonate', $user);
-        $impersonator = current_user();
 
         if (!$this->sessionManager->impersonateUser($user)) {
             return redirect()->back()
@@ -31,7 +30,7 @@ class ImpersonationController
         Audit::auditable($user)
             ->withMessage('auth::audit.user.impersonated', [
                 'user' => $user->present()->fullName,
-                'impersonator' => $impersonator->present()->fullName
+                'impersonator' => current_user()->present()->fullName
             ]);
 
         return redirect()->route('admin.dashboard.show')

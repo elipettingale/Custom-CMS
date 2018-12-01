@@ -34,7 +34,19 @@ class AuthenticateWithSentinel
 
     private function shouldLoginDeveloper(): bool
     {
-        return env('APP_ENV') === 'local' && config('auth.automatically_login_developer') === true;
+        if (env('APP_ENV') !== 'local') {
+            return false;
+        }
+
+        if (config('auth.automatically_login_developer') !== true) {
+            return false;
+        }
+
+        if (env('APP_DEVELOPER') === null) {
+            return false;
+        }
+
+        return true;
     }
 
     private function redirectToLogin(string $intended): RedirectResponse
@@ -46,8 +58,8 @@ class AuthenticateWithSentinel
 
     private function loginDeveloper(): void
     {
-        $developer = $this->userRepository->findOrFail(
-            env('APP_DEVELOPER_ID', 1)
+        $developer = $this->userRepository->findOrFailByEmail(
+            env('APP_DEVELOPER')
         );
 
         $this->sentinel->login($developer);
