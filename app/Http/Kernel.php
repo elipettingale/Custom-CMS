@@ -4,7 +4,6 @@ namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Modules\Auth\Http\Middleware\AuthenticateWithSentinel;
-use Modules\Settings\Http\Middleware\MaintenanceMode;
 
 class Kernel extends HttpKernel
 {
@@ -42,10 +41,6 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             'bindings',
-        ],
-
-        'frontend' => [
-            MaintenanceMode::class
         ]
     ];
 
