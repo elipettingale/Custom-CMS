@@ -3,6 +3,7 @@
 namespace Modules\Content\Http\Controllers\Admin\Page;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Modules\Content\Entities\Page;
 use Modules\Content\Repositories\PageRepository;
 
@@ -15,7 +16,7 @@ class StatusController extends Controller
         $this->pageRepository = $pageRepository;
     }
 
-    public function markAsLive(Page $page)
+    public function markAsLive(Page $page): RedirectResponse
     {
         authorize('mark-as-live', $page);
 
@@ -28,7 +29,7 @@ class StatusController extends Controller
             ->with('success', trans('messages.success.entity-updated', ['entity' => 'Page']));
     }
 
-    public function markAsDraft(Page $page)
+    public function markAsDraft(Page $page): RedirectResponse
     {
         authorize('mark-as-draft', $page);
 

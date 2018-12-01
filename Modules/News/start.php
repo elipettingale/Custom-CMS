@@ -18,7 +18,7 @@ if (!app()->routesAreCached()) {
 
     $router->group([
         'namespace' => $namespace . '\Frontend',
-        'middleware' => ['web', 'frontend'],
+        'middleware' => ['web'],
         'prefix' => '',
         'as' => 'frontend.'
     ], function (Router $router) {

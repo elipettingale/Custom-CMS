@@ -10,7 +10,7 @@ $router->get('news/{slug}', [
     'as' => 'posts.show'
 ]);
 
-$router->get('news/category/{slug}', [
+$router->get('news/categories/{slug}', [
     'uses' => 'PostCategoryController@show',
     'as' => 'posts.categories.show'
 ]);
