@@ -12,15 +12,15 @@ class PlatformInstall extends Command
     {
         $this->info('=== Beginning Platform Installation ===');
 
-        if ($this->confirm('Reset .env?')) {
+        if ($this->confirm('Install .env?', true)) {
             $this->env();
         }
 
-        if ($this->confirm('Install Dependencies?')) {
+        if ($this->confirm('Install Dependencies?', true)) {
             $this->dependencies();
         }
 
-        if ($this->confirm('Reset Database?')) {
+        if ($this->confirm('Install Database?', true)) {
             $this->database();
         }
 
@@ -29,11 +29,6 @@ class PlatformInstall extends Command
 
     private function env(): void
     {
-        if (file_exists(app_path('.env'))) {
-            $this->info(' - removing env file');
-            exec('rm .env');
-        }
-
         $this->info(' - generating env file');
         exec('cp .env.example .env');
 
@@ -55,9 +50,6 @@ class PlatformInstall extends Command
 
     private function database(): void
     {
-        $this->info(' - rolling back migrations');
-        exec('php artisan module:migrate-rollback ');
-
         $this->info(' - running migrations');
         exec('php artisan module:migrate');
 
