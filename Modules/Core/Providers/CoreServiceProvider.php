@@ -4,6 +4,8 @@ namespace Modules\Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Core\Console\PlatformInstall;
+use Modules\Core\Console\SendTestEmail;
 use Modules\Core\Repositories\AddressRepository;
 use Modules\Core\Repositories\Config\ConfigStatusRepository;
 use Modules\Core\Repositories\Eloquent\EloquentAddressRepository;
@@ -21,6 +23,7 @@ class CoreServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->registerFactories();
+        $this->registerCommands();
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
     }
 
@@ -72,6 +75,14 @@ class CoreServiceProvider extends ServiceProvider
         if (! app()->environment('production')) {
             app(Factory::class)->load(__DIR__ . '/../Database/factories');
         }
+    }
+
+    public function registerCommands()
+    {
+        $this->commands([
+            PlatformInstall::class,
+            SendTestEmail::class
+        ]);
     }
 
     public function provides()
