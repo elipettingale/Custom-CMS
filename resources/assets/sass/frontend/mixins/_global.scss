@@ -39,6 +39,21 @@ body {
 
 .pagination {
   margin: 0;
+
+  .page-item {
+    &:not(.active) {
+      .page-link {
+        color: #17a2b8;
+      }
+    }
+
+    &.active {
+      .page-link {
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+      }
+    }
+  }
 }
 
 .hr-b {
