@@ -4,7 +4,6 @@ namespace Modules\Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
-use Modules\Core\Console\PlatformInstall;
 use Modules\Core\Console\SendTestEmail;
 use Modules\Core\Repositories\AddressRepository;
 use Modules\Core\Repositories\Config\ConfigStatusRepository;
@@ -80,7 +79,6 @@ class CoreServiceProvider extends ServiceProvider
     public function registerCommands()
     {
         $this->commands([
-            PlatformInstall::class,
             SendTestEmail::class
         ]);
     }

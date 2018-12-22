@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 LIGHT_BLUE='\033[1;34m'
 LIGHT_GREEN='\033[1;32m'
