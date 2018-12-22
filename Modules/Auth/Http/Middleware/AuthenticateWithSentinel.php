@@ -6,6 +6,7 @@ use Cartalyst\Sentinel\Sentinel;
 use Closure;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Modules\Auth\Entities\User;
 use Modules\Auth\Repositories\UserRepository;
 
 class AuthenticateWithSentinel
@@ -42,7 +43,7 @@ class AuthenticateWithSentinel
             return false;
         }
 
-        if (env('APP_DEVELOPER') === null) {
+        if (!$this->userRepository->findByEmail(env('APP_DEVELOPER', '')) instanceof User) {
             return false;
         }
 

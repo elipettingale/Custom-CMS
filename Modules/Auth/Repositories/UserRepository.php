@@ -15,6 +15,7 @@ interface UserRepository
     public function delete(User $user): bool;
 
     public function findOrFail(int $id): User;
+    public function findByEmail(string $email): ?User;
     public function findOrFailByEmail(string $email): User;
 
     public function getAll(): Collection;

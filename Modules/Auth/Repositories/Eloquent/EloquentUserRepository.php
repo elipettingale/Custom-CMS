@@ -66,6 +66,13 @@ class EloquentUserRepository implements UserRepository
             ->firstOrFail();
     }
 
+    public function findByEmail(string $email): ?User
+    {
+        return $this->user
+            ->where('email', $email)
+            ->first();
+    }
+
     public function findOrFailByEmail(string $email): User
     {
         return $this->user
