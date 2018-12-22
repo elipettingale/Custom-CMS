@@ -20,7 +20,7 @@ class HomePageSeeder extends Seeder
             return;
         }
 
-        if ($post = $this->pageRepository->findOrFailBySlug('home')) {
+        if ($post = $this->pageRepository->findBySlug('home')) {
             $this->pageRepository->delete($post);
         }
 

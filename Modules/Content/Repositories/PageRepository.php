@@ -15,6 +15,7 @@ interface PageRepository
     public function delete(Page $page): bool;
 
     public function findOrFail(int $id): Page;
+    public function findBySlug(string $slug): Page;
     public function findOrFailBySlug(string $slug): Page;
     public function findOrFailBySlugWhereLive(string $slug): Page;
 

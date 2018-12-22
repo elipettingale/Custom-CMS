@@ -68,6 +68,13 @@ class EloquentPageRepository implements PageRepository
             ->firstOrFail();
     }
 
+    public function findBySlug(string $slug): Page
+    {
+        return $this->page
+            ->where('slug', $slug)
+            ->first();
+    }
+
     public function findOrFailBySlug(string $slug): Page
     {
         return $this->page
